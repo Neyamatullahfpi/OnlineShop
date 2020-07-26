@@ -1,0 +1,24 @@
+﻿@using OnlineShop.Models;
+@model List<Products>;  
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="jumbotron text-center">
+    <h2>Welcome to online shop</h2>
+</div>
+<div class="row">
+    @foreach(var product in Model)
+    {
+        <div class="col-md-4 center">
+            <div class="card" style="width: 18rem; padding-top:20px;">
+                <img class="card-img-top" src="@product.Image" alt="Card image cap" height="200px" width="320px">
+                <div class="card-body">
+                    <h3 class="card-title">@product.Name</h3>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a asp-action="Details" controller="Home" asp-route-id="@product.ID" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

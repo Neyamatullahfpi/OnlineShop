@@ -1,0 +1,25 @@
+﻿@model OnlineShop.Models.ProductTypes
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h4 style="background-color:aqua; padding:15px; font-family:'Lucida Sans'; letter-spacing:3px; font-size:20px; border:1px solid #b6ff00">Product Type List</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductType" class="control-label"></label>
+                <input asp-for="ProductType" class="form-control" />
+                <span asp-validation-for="ProductType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

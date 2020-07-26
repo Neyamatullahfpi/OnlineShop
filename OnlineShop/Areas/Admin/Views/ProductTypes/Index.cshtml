@@ -1,0 +1,41 @@
+﻿@using OnlineShop.Models;
+@model IEnumerable<ProductTypes>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+
+    <div class="col-sm-12 text-right"><a asp-action="Create">New Product</a> </div>
+</div>
+<div class="container">
+    <form method="post" name="index" action="">
+        <table class="table">
+            <tr>
+                <th style="font-family:'Comic Sans MS';font-size:20px;letter-spacing:3px; padding:10px; background-color:cadetblue;" colspan="3">@Html.DisplayNameFor(d => d.ProductType)</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="font-family:Cambria;font-size:16px;">@item.ProductType</td>
+                    <td><partial name="_buttonPartial" model="@item.Id" /></td>
+                </tr>
+            }
+        </table>
+    </form>
+</div>
+@section Scripts{
+
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var msg = '@TempData["msg"]'
+            if (msg != null) {
+                alertify.success(msg);
+            }
+        });
+
+    </script>
+
+}
